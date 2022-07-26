@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confiremed Jobs</title>
+    <link rel="stylesheet" href="jobs.css">
+</head>
+<style>
+         *{
+    margin:0;
+    padding: 0;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.navbar{
+
+width:100%;
+height: 100px;
+
+}
+
+.nav-left{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width:90%;
+    height: 100px;
+    border-radius: 20px;
+    margin-top: 27px;
+    margin-left: 50px;
+    position: fixed;
+  
+
+}
+.nav-text{
+    font-size: 30px;
+    margin-top: 8px;
+    margin-left: 63PX;
+    display: flex;
+    padding-top: 27px;
+   
+   }
+.nav-right {
+    width: 100px;
+    margin-left: 1000px;
+    margin-top: -19px;
+    margin-right: 10px;
+    display: flex;
+
+}
+.btn{
+    font-size: 18px;
+    border: 2px solid orange;
+    padding: 1px 6px;
+    text-decoration: none;
+    background-color:rgb(247 203 119);
+    font-weight: bold;
+    color: black;
+    margin-top: 8px;
+    
+
+}
+.btn:hover{
+    background:none;
+}
+.user-option{
+   
+    margin-top: 72px;
+    width: 340px;
+    height: 450px;
+    margin-left: 50px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.user-left{
+    
+    width: 200px;
+    margin: auto;
+    margin-top: 50px;
+    height: 350px;
+    padding: 23px 48px;
+
+
+}
+.user-available{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    font-size: 18px;
+   padding: 9px 32px;
+   border-radius: 5px;
+   margin-top: 28px;
+   
+}
+.user-applied{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    font-size: 18px;
+   margin: 0px 0px;
+   margin-top: 100px;
+   padding: 9px 32px;
+   border-radius: 5px;
+}
+.user-confirmed{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+font-size: 18px;
+   margin: 0px 0px;
+   margin-top: 110px;
+   padding: 9px 20px;
+   border-radius: 5px;
+}
+.user-available a{
+    text-decoration: none;
+}
+
+.user-applied a{
+    text-decoration: none;
+}
+.user-confirmed a{
+    text-decoration: none;
+}
+.user-option-right{
+    
+ width: 830px;
+ margin-left: 420px;
+ margin-top: -450px;
+ box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+ border-radius: 5px;
+ border: 1.5px solid black;
+
+}
+
+th ,td{
+    text-align: left;
+    padding: 8px;
+    font-size: 20px;
+}
+
+
+</style>
+
+<body>
+ 
+      
+    <div class="navbar">
+        <div class="nav-left">
+            <h1 class="nav-text"> Welcome , {{session.username | safe}}
+
+            </h1>
+            <div class="nav-right">
+                <div class="logout">
+                    <a href="/" class="btn">Log-out</a>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    <div class="user-option">
+      
+           <div class="user-left">
+            <div class="user-available">
+                <a href="/jobs" class="user-btns">Available-Jobs</a>
+            </div>
+            <div class="user-applied">
+                <a href="/appliedjobs" class="user-btns">Applied-Jobs</a>
+            </div>
+            <div class="user-confirmed">
+                <a href="/confirmedjobs" class="user-btns">Confirmed-Jobs</a>
+            </div>
+        </div>
+            
+    </div>
+  
+    <div class="user-option-right">
+        <div style="overflow-x: auto;">
+            <table>
+                <thead>
+                    <tr>
+                        <th>jobrole</th>
+                        <th>jobtype</th>
+                        <th>job location</th>
+                        <th>salary(per year)</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in value %} 
+                        <tr>
+                            <td>{{row.jobrole}}</td>
+                            <td>{{row.jobtype}}</td>
+                            <td>{{row.joblocation}}</td>
+                            <td>{{row.joblocation}}</td>
+                            <td>{{row.salary}}</td>
+                             
+                        </tr>
+                        {% endfor %} 
+                    </tbody>
+            </table>
+           
+        </div>
+
+    </div>
+
+
+
+    
+   
+        
+    </body>

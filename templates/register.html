@@ -1,0 +1,219 @@
+
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+</head>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+    * {
+
+        margin: 0;
+        padding: 0;
+        font-family: 'Ubuntu', sans-serif;
+
+    }
+
+    ::-webkit-input-placeholder {
+        font-size: 16px;
+    }
+
+    .login {
+
+
+        width: 100%;
+        height: 700px;
+        display: flex;
+        margin: auto;
+        margin-top: 0px;
+    }
+
+    .form {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin-left: 95px;
+        padding: 35px;
+        margin-top: 30px;
+    }
+
+    .form-control {
+
+        margin-top: 16px;
+    }
+
+    .form label {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 16px;
+
+    }
+
+    .form input {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        width: 89%;
+        font-size: 17px;
+        border: none;
+        outline: none;
+        padding: 10px;
+        height: 16px;
+        border-bottom: rgb(228, 181, 93) 2px solid;
+        padding-left: 0;
+    }
+
+    .btn {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: black;
+        border: 2px rgb(19, 13, 1);
+        cursor: pointer;
+        padding: 6px 120px;
+        font-size: 18px;
+        background: none;
+        background-color: rgb(247 203 119);
+        display: flex;
+        margin-left: -3px;
+        margin-top: 70px;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .btn:hover {
+
+        border: 2px solid rgb(247 203 119);
+        background-color: white;
+
+    }
+
+    .head {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 30px;
+        font-weight: bold;
+    }
+
+    .forgot {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin-left: 182px;
+        margin-top: 20px;
+        text-decoration: none;
+
+    }
+
+    .newuser {
+        margin-left: 330px;
+        margin-top: 0px;
+
+    }
+
+    .log img {
+
+        width: 537px;
+        margin-top: 33px;
+        margin-left: 38px;
+        padding: 23px 23px;
+    }
+</style>
+
+<body>
+
+    <script>
+         
+    function mufun(){
+        var a =document.getElementById("pwd").value;
+        var b =document.getElementById("cpwd").value;
+        var c =document.getElementById("number").value;
+        if(c==''){
+            document.getElementById("messages").innerHTML=" **Please Enter Mobile Number";
+            return false;
+        }
+        if(isNaN(c)){
+            document.getElementById("messages").innerHTML=" **enter only numeric value";
+            return false;
+        }
+        if(c.length<10){
+            document.getElementById("messages").innerHTML=" **Mobile number must be 10 digit";
+            return false;
+        }
+        if(c.length>10){
+            document.getElementById("messages").innerHTML=" **Mobile number must be 10 digit";
+            return false;
+        }
+        if((c.charAt(0)!=9) && (c.charAt(0)!=8) && (c.charAt(0)!=7)) {
+        document.getElementById("messages").innerHTML=" **Mobile number must start with 9 or 8 or 7";
+            return false;
+        }
+
+        if(a==''){
+            document.getElementById("message").innerHTML=" **Please Enter password";
+            return false;
+        }
+        if (a.length<5){
+            document.getElementById("message").innerHTML=" **Password length must be greater then 5";
+            return false;
+        }
+        if (a.length>20){
+            document.getElementById("message").innerHTML=" **Password length must be less then 20 ";
+            return false;
+        }
+        if(a!=b){
+            document.getElementById("message").innerHTML=" **Passwords are not matching ";
+            return false;
+        }
+       
+    }
+    </script>
+
+    <section class="login">
+
+        <div class="log">
+            <img src="https://cdn.pixabay.com/photo/2020/04/03/06/35/work-4997565_1280.png" alt="">
+        </div>
+
+        <form action="/register" method='POST' class="form" onsubmit= " mufun()">
+
+
+            <h1 class="head">Register Here</h1>
+            <div class="form-control">
+
+
+                <label for="name"><b>Name*</b></label>
+                <input type="name" name="name" id="name" placeholder="Enter Full Name" required>
+
+            </div>
+            <div class="form-control">
+
+
+                <label for="name"><b>Email*</b></label>
+                <input type="email" name="email" id="email" placeholder="ex:shashi22@gmail.com" required>
+
+            </div>
+
+            <div class="form-control">
+                <label for="tel.number"><b>Tel.number*</b></label>
+                <input type="phone" name="telnum" id="number" placeholder="Enter Phone"required>
+                <span id="messages" style="color: red;"></span><br></br>
+            </div>
+            <div class="form-control">
+                <label for="password"><b>Password*</b></label>
+                <input type="password" name="password" id="pwd" placeholder="Enter Password" >
+                <span id="message" style="color: red;"></span><br></br>
+            </div>
+            <div class="form-control">
+                <label for="password"><b></b></label>
+                <input type="password" name="password" id="cpwd" placeholder="Confirm Password" required>
+                <span id="message" style="color: red;"></span><br></br>
+            </div>
+
+            
+            <button type="submit" class="btn" >submit</button>
+        </form> 
+        </section>
+
+        
+
+</body>
+
+</html>
